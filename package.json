@@ -1,0 +1,33 @@
+{
+  "name": "simple-template",
+  "version": "1.0.0",
+  "preview": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./src/index.pug --open",
+    "build": "parcel build ./src/index.pug"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.6.0",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "less": "^3.9.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.18.2",
+    "pug": "^2.0.3"
+  },
+  "dependencies": {
+    "@glidejs/glide": "^3.3.0",
+    "bulma": "^0.7.5"
+  }
+}

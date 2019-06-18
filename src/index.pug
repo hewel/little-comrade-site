@@ -1,0 +1,55 @@
+//- doctype html
+//- html(lang="zh-cn")
+//-   include ./components/head
+//-   body(class="has-navbar-fixed-top")
+//-     script(src="./script/index.js")
+//-     header
+//-       nav.navbar(class="is-link is-fixed-top")
+//-         .container
+//-           .navbar-brand
+//-             a.navbar-item(href="#") 小共识科技
+//-             .navbar-burger
+//-               span
+//-               span
+//-               span
+//-           .navbar-menu
+//-             include ./components/nav-item.pug
+//-             .navbar-end
+//-               each val in menuList
+//-                 +nav-item(val[0], val[1])
+
+extends ./layout/main.pug
+
+block content
+  section.hero(class="is-link is-large is-fullheight-with-navbar")
+    .hero-body
+      .container
+        h1.title 小共识科技
+        h2.subtitle 小共识科技有限公司
+  section.hero(class="is-medium")
+    .hero-body
+      .container
+        .columns.is-variable(class="is-6")
+          .column(class="is-half")
+          .column
+            h3.title(class="is-3") 关于我们——
+            h3.subtitle ABOUT US
+            article.notification(class="about-text")
+              p Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.
+            button.button(class="is-link") 了解更多
+  section.hero(class="is-medium")
+    .hero-body
+      .container
+        h1.title 案例展示
+        h2.subtitle Case Introduction
+        article.notification(class="about-text")
+          p Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.
+        .columns.notification
+          .column
+            .box
+          .column
+            .box
+          .column
+            .box
+          .column
+            .box

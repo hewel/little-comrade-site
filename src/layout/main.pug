@@ -1,0 +1,24 @@
+doctype html
+html(lang="zh-cn")
+  include ../components/head
+  body(class="has-navbar-fixed-top")
+    block script
+      script(src="./script/index.js")
+    nav.navbar(class="is-link is-fixed-top")
+      .container
+        .navbar-brand
+          a.navbar-item(href="#") 小共识科技
+          .navbar-burger
+            span
+            span
+            span
+        .navbar-menu
+          include ../components/nav-item.pug
+          .navbar-end
+            each val in menuList
+              +nav-item(val[0], val[1])
+    block content
+      .content
+    block footer
+      footer
+

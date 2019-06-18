@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      4
+    ],
+    "semi": "off",
+    "linebreak-style": "off",
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ]
+  }
+}

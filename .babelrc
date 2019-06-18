@@ -1,0 +1,32 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    // "@babel/preset-react",
+    // "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    // "transform-node-env-inline",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    // ["ramda", {
+    //   "useES": true
+    // }],
+    // ["import", {
+    //   "libraryName": "antd",
+    //   "libraryDirectory": "es",
+    //   "style": "css" // `style: true` 会加载 less 文件
+    // },"antd"],
+    // ["import", {
+    //   "libraryName": "antd-mobile",
+    //   "libraryDirectory": "es",
+    //   "style": "css" // `style: true` 会加载 less 文件
+    // },"antd-mobile"],
+    // ["import", {
+    //   "libraryName": "ramda",
+    //   "libraryDirectory": "es",
+    // },"ramda"],
+    // ["import", {
+    //   "libraryName": "react-router-dom",
+    // },"react-router-dom"]
+  ]
+}
