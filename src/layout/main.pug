@@ -1,13 +1,13 @@
 doctype html
 html(lang="zh-cn")
   include ../components/head
-  body(class="has-navbar-fixed-top")
-    block script
-      script(src="./script/index.js")
-    nav.navbar(class="is-link is-fixed-top")
+  body
+    - let navClassName = pageIndex === 0 ? 'is-link transparent' : 'is-link'
+    nav.navbar.is-fixed-top(class=navClassName)
       .container
-        .navbar-brand
-          a.navbar-item(href="#") 小共识科技
+        .navbar-brand.logo
+          a.navbar-item.logo(href="/")
+            img(src=logoImg, alt="logo")
           .navbar-burger
             span
             span
@@ -15,10 +15,35 @@ html(lang="zh-cn")
         .navbar-menu
           include ../components/nav-item.pug
           .navbar-end
-            each val in menuList
-              +nav-item(val[0], val[1])
+            each val, index in menuList
+              +nav-item(val[0], val[1], pageIndex, index)
     block content
       .content
     block footer
-      footer
+      footer.footer: .container.is-variable.is-6: .columns
+        .column
+          h1.title.is-5 关于我们
+          .about-us.link-list.max-height
+            a.link(href="/", title="共识科技") 共识科技
+            a.link(href="#engine", title="基本交易引擎") 基本交易引擎
+            a.link(href="#service", title="服务介绍") 服务介绍
+            a.link(href="#", title="团队动态") 团队动态
+            a.link(href="#about", title="关于我们") 关于我们
+        .column
+          h1.title.is-5 友情链接
+          .friend-link.link-list.max-height
+            a.link(href="https://www.dainiwan1866.com/", title="带你玩") 带你玩
+            a.link(href="http://h.gukeji.com.cn/", title="美容美发") 美容美发
+            a.link(href="http://b.oust.site/", title="服装服饰") 服装服饰
+            a.link(href="http://b.gukeji.com.cn/", title="餐饮服务") 餐饮服务
+        .column
+          h1.title.is-5 联系我们
+          .contact-us.link-list
+            span 电话：400-xxxxxxxx
+            span 邮箱：xxxxxxxxxx@xxx.com
+            span 地址: 深圳市龙华区创业路汇海广场B座1109
+        .column
+    p.has-text-centered Copyright © 2019 小共识科技有限公司
+    block script
+      script(src="./script/index.js")
 

@@ -1,6 +1,33 @@
+import throttle from 'lodash-es/throttle'
+// import uniq from 'lodash-es/uniq'
+
 import 'bulma'
 import '../less/index.less'
 
-const list = [1, 2, 1, 3, 5, 6]
+const navbar = document.getElementsByClassName('navbar')[0]
+const banner = document.getElementsByClassName('banner')[0]
+// const navbarClassList = Array.from(navbar.classList)
 
-list.forEach(console.log)
+function handleScroll() {
+    const [docEl, bodyEl] = [document.documentElement, document.body]
+    const [scrollTop, , , bannerClientHeight, navbarClientHeight] = [
+        docEl.scrollTop || bodyEl.scrollTop,
+        docEl.scrollHeight || bodyEl.scrollHeight,
+        docEl.clientHeight || bodyEl.clientHeight,
+        banner.clientHeight,
+        navbar.clientHeight,
+    ]
+
+    const isScrollPassBanner =
+        scrollTop >= bannerClientHeight - navbarClientHeight - 600
+
+    if (isScrollPassBanner) {
+        navbar.classList.remove('transparent')
+    } else {
+        navbar.classList.add('transparent')
+    }
+}
+
+if (banner) {
+    window.addEventListener('scroll', throttle(handleScroll, 200))
+}

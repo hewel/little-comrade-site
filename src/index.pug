@@ -21,35 +21,172 @@
 extends ./layout/main.pug
 
 block content
-  section.hero(class="is-link is-large is-fullheight-with-navbar")
-    .hero-body
-      .container
-        h1.title 小共识科技
-        h2.subtitle 小共识科技有限公司
-  section.hero(class="is-medium")
-    .hero-body
-      .container
-        .columns.is-variable(class="is-6")
-          .column(class="is-half")
-          .column
-            h3.title(class="is-3") 关于我们——
-            h3.subtitle ABOUT US
-            article.notification(class="about-text")
-              p Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.
-            button.button(class="is-link") 了解更多
-  section.hero(class="is-medium")
-    .hero-body
-      .container
-        h1.title 案例展示
-        h2.subtitle Case Introduction
-        article.notification(class="about-text")
-          p Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.Bulma is a free, open source CSS framework based on Flexbox and used by more than 150,000 developers.
-        .columns.notification
-          .column
-            .box
-          .column
-            .box
-          .column
-            .box
-          .column
-            .box
+  section.hero.banner(class="is-link is-large is-fullheight-with-navbar is-gradient")
+    .hero-body: .container: .columns
+      .column.is-half
+        h1.title.is-1.is-spaced=banner.title
+        h2.subtitle=banner.subtitle
+        span.piece
+        a.button.is-large.is-outlined(href=banner.learnMore.link)=banner.learnMore.text
+      .column: img.block(src="./assets/images/block.png", alt="block")
+  section.hero.engine.is-medium(id="engine")
+    .hero-body: .container
+      h1.title.is-spaced=engine.title
+      h2.subtitle=engine.subtitle
+      .columns
+        each val in engine.list
+          .column: .engine-card
+            .card-head
+              .engine.icon
+                span.circle
+                img.image.icon-def(src=val.icon[0], alt="def")
+                img.image.icon-act(src=val.icon[1], alt="act")
+              h3.title.is-4=val.title
+            span.line
+            .card-text
+              each subVal in val.subtitles
+                h4.subtitle.is-6=subVal
+              p.engine.text=val.text
+  section.hero(id="about" class="is-medium about-us")
+    .hero-body: .container.flex.flex-column.align-center
+      h3.title.is-3=aboutUs['title']
+      span.line
+      h2.subtitle=aboutUs['subtitle'].toUpperCase()
+      .columns.is-variable.is-8
+        .column.is-half
+          .about-card
+            img.image.btc-icon(src="./assets/icon/btc.png", alt="btc")
+            h2.title.is-3 项目定位
+            p 区动力系统涵盖传统经营的十三个主流行业，各个行业定制开发，完全适合目前各类实体店应用。
+            p 结合区块链技术的合伙人对标系统，分布式账本，无法串改，对合伙人完全透明化经营数据，解决传统合伙数据不透明而导致的合伙人矛盾积累，最后不欢而散的痛点，充分发挥集思广益、合伙经营的优势；独家专利的超具吸引力和互动性的红包裂变系统、社交拼团系统、点评约购系统等，让您的拓客变得很轻松。同时我们还配备了一个企业智库团队，专业为您提供专业的项目孵化、企业经营资讯、顶层设计等服务。区块链新应用、经营资产数字化，为您实现传统店面一键打包带走的梦想，解决您移地经营需要重新开始的尴尬境地。
+        .column.is-half
+          .about-card
+            img.image.btc-icon(src="./assets/icon/btc.png", alt="btc")
+            h2.title.is-3 前景规划
+            p 马云在16年提出的“新零售”的概念之后，新零售就以迅雷不及掩耳之势快速发展，并且被认为是未来十年、二十年甚至更长时间里实体经济的最大机会。
+            p 过去几年，实体门店受到了电商行业巨大的冲击，线下大部分连锁店面临倒闭，净利润大幅下降38%……但是，随着线上电商市场的日趋成熟，电商也进入了日益激烈的竞争，线上获客成本水涨船高。于是，线下实体店的商家价值开始被重新审视——投资成本低、成熟周期短、小众化的实体门店依然蕴藏着很大的市场价值和发展潜力。当线上电商发展的增速放缓，实体经济呈现出明显的回暖趋势，市场曾一度低迷的实体店再次迎来了以新零售为代表的发展新契机。越来越多的互联网巨头也将重心放到了实体店上。
+            p 传统店商通常采用提高客量、提高单价、提升频次三种方式来提高业绩，通过调整畅销品、平销品、滞销品的结构来进行产品管理，通过对客户进行高端、中端、低端分类管理来留存客户。做的促销方案引流，则是从“客人来、客消费、客再来”三方面入手。然而最开始一步就是要让客户知道你的店并主动进行消费，小共识独家专利的超具吸引力和互动性的红包裂变系统、社交拼团系统、点评约购系统将服务到各领域的中小微企业及实体门店,打造体验式社交新零售营销模。
+  section.position
+    section.hero.is-medium
+      .hero-body: .container: .columns.is-variable.is-8
+        .column.is-half: .mind-map
+          .item.flex.align-center
+            .arrows-box.outline.flex.align-center: span.arrows-block 逻辑层
+            .content-box.outline.flex.align-center: div.content-text 智能合约、复杂交易
+          .item.flex.align-center
+            .arrows-box.outline.flex.align-center: span.arrows-block 逻辑层
+            .content-box.outline.flex.align-center
+              div.content-text 智能合约、复杂交易
+              .arrows-box.flex.align-center.left: span.arrows-block 逻辑层
+          .item.flex.align-center
+            .arrows-box.outline.flex.align-center: span.arrows-block 逻辑层
+            .content-box.outline.flex.align-center: div.content-text 智能合约、复杂交易
+        .column.is-half: .text-end
+          h1.title.is-04 交易引擎的逻辑定位
+          p 从逻辑上分析，我们在区块链的逻辑层和数据层之间，增加了一个规则层，交易引擎就在规则层。它的目的就是对众多的交易模型进行抽象，向合约层提供接口，避免合约对数据结构的直接操作，从而增加安全性。
+    section.hero.is-medium.is-light
+      .hero-body: .container: .columns.is-variable.is-8
+        .column.is-half: .text-start
+          h1.title.is-04 交易引擎的物理定位
+          p 交易引擎的物理分布是分为两个部分，“交易的执行”是在区块链上，“交易的定义”是在企业应用系统上（ERP或CRM系统等）。这种模式下，交易的定义和交易的执行是分开的，可以从根本上避免“程序员作恶”的问题。
+        .column.is-half.flex.justify-center
+          img.image(src="./assets/images/trade_engine.png", alt="trade")
+    section.hero.is-medium
+      .hero-body: .container: .columns.is-variable.is-8
+        .column.is-half.flex
+          img.image(src="./assets/images/contract.png", alt="contract")
+        .column.is-half: .text-end
+          h1.title.is-04 智能合约与交易引擎的差异
+          p 事实上，我们在日常生活中遇到的资产交易类的合同大部分都是格式合同，比如购房、买车、购买保险或理财产品等。这些合同往往是由政府主管部门或者行业组织负责编写，对交易双方的安全都是一种保护。
+    section.hero.is-medium.is-light
+      .hero-body: .container: .columns.is-variable.is-8
+        .column.is-half: .text-start
+          h1.title.is-04 高级交易引擎
+          p 为了适应复杂的交易，将企业不同交易场景进行抽象，以固定化的交易引擎方式来代替人工智能合约的编写。
+        .column.is-half.flex.justify-end
+          img.image(src="./assets/images/transaction.png", alt="transaction")
+  section.hero(id="case" class="is-medium show-case")
+    .hero-body: .container
+      .show-bg
+        img(src="./assets/images/show-bg.jpg", alt="show-bg")
+        .base-bg
+      .case-box
+        h1.title=showCase['title']
+        h2.subtitle.gray=showCase['subtitle'].toUpperCase()
+        article.notification.text: p=showCase['text']
+        .columns
+          each val in showCase['caseList']
+            .column: .card.elevation
+              .card-image: a.image.is-square(href=val.link)
+                img(src=val.thumb, alt=val.title)
+              .card-content.flex.justify-center
+                a.button(
+                  href=val.link,
+                  title=val.title,
+                  class="is-link fixed-width square"
+                )=val.title
+  //- section.hero(class="is-medium show-product")
+  //-   .hero-body: .container.has-text-centered
+  //-     h1.title=showProduct.title
+  //-     h2.subtitle.gray=showProduct.subtitle.toUpperCase()
+  //-     .columns.is-variable.is-6
+  //-       each val in showProduct.productList
+  //-         .column: .card.elevation
+  //-           .card-image: a.image.is-5by4(href=val.link)
+  //-             img(src=val.thumb, alt=val.title)
+  //-           .card-content
+  //-             h2.title.is-4=val.title
+  //-             h2.subtitle.is-5.gray=val.subtitle.toUpperCase()
+
+  section.hero(id="service" class="is-medium service")
+    .hero-body: .container.flex.flex-column.align-center
+      h3.title.is-3='公司服务介绍'
+      span.line
+      h2.subtitle='北斗链有一支技术功力深厚而又高效的研发团队，长期专注于操作系统、网络通信、加密算法等底层开发。 北斗链平台以开源、开放的原则，欢迎全球的技术和运营人才的加盟，共同开启安全区块链平台的新时代。'
+      .columns
+        .column
+          .about-card
+            h2.title.is-4='user map'.toUpperCase()
+            h3.subtitle.is-3 访问用户地图
+            p 实时提供全球访问用户信息，包括IP地址、所在城市、访问速度、访问次数，并提供各地域访问用户占比统计。
+        .column
+          .about-card
+            h2.title.is-4='usage report'.toUpperCase()
+            h3.subtitle.is-3 月度使用报告
+            p 每月提供精美的用户使用报告，包括DDoS攻击统计排名、WAF攻击统计排名、业务带宽统计、用户访问量统计等信息。
+        .column
+          .about-card
+            h2.title.is-4='Safety report'.toUpperCase()
+            h3.subtitle.is-3 安全事件报表功能
+            p 展示攻击事件信息，内容包括攻击类型、攻击状态、攻击时间、攻击流量等。实时提供DDoS流量清洗统计信息，包括DDoS攻击峰值、DDoS攻击次数和防护端口数。
+        .column
+          .about-card
+            h2.title.is-4='security function'.toUpperCase()
+            h3.subtitle.is-3 CC防护功能
+            p 识别并阻断SQL注入、XSS跨站脚本攻击、CC攻击、恶意爬虫扫描、CSRF等攻击，保护Web服务安全稳定。
+  section.hero.is-medium.FAQ(id="FAQ")
+    .hero-body: .container.flex.flex-column.align-center
+      h3.title.is-3='FAQ'
+      span.line
+      h2.subtitle='问题与回答'
+      .FAQ-box.flex
+        .FAQ-card
+          .question.flex
+            .question-number 01
+            .question-text.title.is-4 北斗链是用什么开发语言实现的？
+          p.answer 前期使用C++语言，继承比特币的功能特点,C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。；后期将改为JAVA语言实现，Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。更好地满足企业开发的需要。
+        .FAQ-card
+          .question.flex
+            .question-number 02
+            .question-text.title.is-4 北斗链是用什么开发语言实现的？
+          p.answer 前期使用C++语言，继承比特币的功能特点,C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。；后期将改为JAVA语言实现，Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。更好地满足企业开发的需要。
+        .FAQ-card
+          .question.flex
+            .question-number 03
+            .question-text.title.is-4 北斗链是用什么开发语言实现的？
+          p.answer 前期使用C++语言，继承比特币的功能特点,C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。；后期将改为JAVA语言实现，Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。更好地满足企业开发的需要。
+        .FAQ-card
+          .question.flex
+            .question-number 04
+            .question-text.title.is-4 北斗链是用什么开发语言实现的？
+          p.answer 前期使用C++语言，继承比特币的功能特点,C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。；后期将改为JAVA语言实现，Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。更好地满足企业开发的需要。

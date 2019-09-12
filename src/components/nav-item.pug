@@ -1,2 +1,3 @@
-mixin nav-item(name, link='#')
-  a.navbar-item(href=link)=name
+mixin nav-item(name, link='#', pageIndex, index)
+  - let isActive = pageIndex === index ? 'isActive' : ''
+  a.navbar-item(href=link, class=isActive title=name)=name

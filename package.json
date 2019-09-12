@@ -5,8 +5,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./src/index.pug --open",
-    "build": "parcel build ./src/index.pug"
+    "dev": "parcel ./src/index.pug --open --no-autoinstall",
+    "build": "parcel build ./src/index.pug --no-source-maps --public-url ./dist/",
+    "dev:about": "parcel ./src/pages/about/about.pug --open --no-autoinstall",
+    "build:about": "parcel build ./src/pages/about/about.pug --no-source-maps"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -23,11 +25,16 @@
     "eslint-plugin-prettier": "^3.1.0",
     "less": "^3.9.0",
     "parcel-bundler": "^1.12.3",
+    "posthtml-img-autosize": "^0.1.4",
     "prettier": "^1.18.2",
     "pug": "^2.0.3"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "bulma": "^0.7.5"
+    "bulma": "^0.7.5",
+    "clsx": "^1.0.4",
+    "lodash-es": "^4.17.11",
+    "lodash.throttle": "^4.1.1",
+    "scrolldir": "^1.5.0"
   }
 }

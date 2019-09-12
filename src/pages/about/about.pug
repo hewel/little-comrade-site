@@ -1,0 +1,10 @@
+extends ../../layout/main.pug
+
+block content
+  section.hero.is-fullheight.content.text: .container: .notification
+    .title=aboutUs.title
+    each val in aboutUs.text
+      p=val
+block script
+  script(src="../../script/index.js")
+
